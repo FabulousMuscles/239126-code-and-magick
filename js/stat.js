@@ -31,7 +31,7 @@ var getMaxElement = function(arr) {
   return maxElement;
 };
 
-var getText = function(ctx, color, font, text, x, y,) {
+var getText = function(ctx, color, font, text, x, y) {
   ctx.fillStyle = color;
   ctx.font = font;
   ctx.fillText(text, x, y);
