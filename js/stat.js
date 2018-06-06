@@ -46,7 +46,7 @@ window.renderStatistics = function (ctx, players, times) {
   getText(ctx, colorBlack, fontData, textData[0], basicMargin - 20, BASIC_Y * 4);
   getText(ctx, colorBlack, fontData, textData[1], basicMargin - 20, BASIC_Y * 6);
 
-  var getColor = function (players, color) {
+  var getColor = function (color) {
     for (var i = 0; i < players.length; i++) {
       color = 'rgba(0, 0, 255,' + (Math.random() + 0.10) + ')';
     }
