@@ -15,12 +15,12 @@ var fontData = '16px PT Mono';
 var textData = ['Ура вы победили', 'Список результатов:'];
 var colorBlack = '#000';
 
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-var getMaxElement = function(arr) {
+var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
   for (var i = 1; i < arr.length; i++) {
@@ -31,14 +31,14 @@ var getMaxElement = function(arr) {
   return maxElement;
 };
 
-var getText = function(ctx, color, font, text, x, y) {
+var getText = function (ctx, color, font, text, x, y) {
   ctx.fillStyle = color;
   ctx.font = font;
   ctx.fillText(text, x, y);
   ctx.fillText(text, x, y);
-}
+};
 
-window.renderStatistics = function(ctx, players, times) {
+window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, BASIC_X + 10, BASIC_Y + 10, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, BASIC_X, BASIC_Y, '#fff');
 
@@ -46,12 +46,12 @@ window.renderStatistics = function(ctx, players, times) {
   getText(ctx, colorBlack, fontData, textData[0], basicMargin - 20, BASIC_Y * 4);
   getText(ctx, colorBlack, fontData, textData[1], basicMargin - 20, BASIC_Y * 6);
 
-  var getColor = function(players, color){
+  var getColor = function (players, color) {
     for (var i = 0; i < players.length; i++) {
       color = 'rgba(0, 0, 255,' + (Math.random() + 0.10) + ')';
     }
     return color;
-  }
+  };
 
   var maxTime = getMaxElement(times);
 
