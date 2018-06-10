@@ -59,7 +59,7 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillStyle = colorBlack;
     ctx.fillText(players[i], basicMargin + (columnMargin * i), CLOUD_HEIGHT - BASIC_Y);
     ctx.fillText(Math.round(times[i]), basicMargin + (columnMargin * i), BAR_Y_POSITION + (BAR_HEIGHT * times[i] / maxTime) - BASIC_Y);
-    if (players[i]=== 'Вы') {
+    if (players[i] === 'Вы') {
       ctx.fillStyle = colorRed;
     } else {
       ctx.fillStyle = getColor(randomBlue);
