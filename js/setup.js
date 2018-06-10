@@ -40,7 +40,7 @@ var renderArrayObject = function (arrayObjects, quantity) {
       name: shuffledNames[i] + ' ' + shuffledSurnames[i],
       coatColor: shuffledCoats[i],
       eyesColor: shuffledWizardEyes[i]
-    }
+    };
   }
   return arrayObjects;
 };
@@ -61,8 +61,8 @@ var fragment = document.createDocumentFragment();
 
 var createWizardBlock = function (documentFragment, arrayObjects) {
   for (var i = 0; i < arrayObjects.length; i++) {
-  documentFragment.appendChild(renderWizard(arrayObjects[i]));
-}
+    documentFragment.appendChild(renderWizard(arrayObjects[i]));
+  }
   return similarListElement.appendChild(documentFragment);
 };
 
