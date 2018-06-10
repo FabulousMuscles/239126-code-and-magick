@@ -32,29 +32,20 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 .querySelector('.setup-similar-item');
 
 
-var wizards = [
-  {
-    name: shuffledNames[0] + ' ' + shuffledSurnames[0],
-    coatColor: shuffledCoats[0],
-    eyesColor: shuffledWizardEyes[0]
-  },
-  {
-    name: shuffledNames[1] + ' ' + shuffledSurnames[1],
-    coatColor: shuffledCoats[1],
-    eyesColor: shuffledWizardEyes[1]
-  },
-  {
-    name: shuffledNames[2] + ' ' + shuffledSurnames[2],
-    coatColor: shuffledCoats[2],
-    eyesColor: shuffledWizardEyes[2]
-  },
-  {
-    name: shuffledNames[3] + ' ' + shuffledSurnames[3],
-    coatColor: shuffledCoats[3],
-    eyesColor: shuffledWizardEyes[3]
-  }
-];
+var wizards = [];
 
+var renderArrayObject = function (arrayObjects, quantity) {
+  for (var i = 0; i < quantity; i++) {
+    arrayObjects[i] = {
+      name: shuffledNames[i] + ' ' + shuffledSurnames[i],
+      coatColor: shuffledCoats[i],
+      eyesColor: shuffledWizardEyes[i]
+    }
+  }
+  return arrayObjects;
+};
+
+renderArrayObject(wizards, 4);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -67,12 +58,14 @@ var renderWizard = function (wizard) {
 };
 
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
 
-similarListElement.appendChild(fragment);
+var createWizardBlock = function (documentFragment, arrayObjects) {
+  for (var i = 0; i < arrayObjects.length; i++) {
+  documentFragment.appendChild(renderWizard(arrayObjects[i]));
+}
+  return similarListElement.appendChild(documentFragment);
+};
+
+createWizardBlock(fragment, wizards);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
-
-
