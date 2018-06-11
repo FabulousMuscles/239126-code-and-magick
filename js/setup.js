@@ -23,7 +23,6 @@ var shuffledCoats = shuffleArray(WIZARD_COATS);
 var shuffledWizardEyes = shuffleArray(WIZARD_EYES);
 
 var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
 
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 
@@ -31,6 +30,7 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 .content
 .querySelector('.setup-similar-item');
 
+var fragment = document.createDocumentFragment();
 
 var wizards = [];
 
@@ -45,7 +45,6 @@ var renderArrayObject = function (arrayObjects, quantity) {
   return arrayObjects;
 };
 
-renderArrayObject(wizards, 4);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -57,7 +56,6 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
 
 var createWizardBlock = function (documentFragment, arrayObjects) {
   for (var i = 0; i < arrayObjects.length; i++) {
@@ -66,6 +64,11 @@ var createWizardBlock = function (documentFragment, arrayObjects) {
   return similarListElement.appendChild(documentFragment);
 };
 
-createWizardBlock(fragment, wizards);
+userDialog.classList.remove('hidden');
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+renderArrayObject(wizards, 4);
+
+createWizardBlock(fragment, wizards);
+
