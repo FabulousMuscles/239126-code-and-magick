@@ -31,7 +31,7 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
-var getText = function (ctx, color, font, text, x, y) {
+var renderText = function (ctx, color, font, text, x, y) {
   ctx.fillStyle = color;
   ctx.font = font;
   ctx.fillText(text, x, y);
@@ -43,8 +43,8 @@ window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, BASIC_X, BASIC_Y, '#fff');
 
 
-  getText(ctx, colorBlack, fontData, textData[0], basicMargin - 20, BASIC_Y * 4);
-  getText(ctx, colorBlack, fontData, textData[1], basicMargin - 20, BASIC_Y * 6);
+  renderText(ctx, colorBlack, fontData, textData[0], basicMargin - 20, BASIC_Y * 4);
+  renderText(ctx, colorBlack, fontData, textData[1], basicMargin - 20, BASIC_Y * 6);
 
   var getColor = function (color) {
     for (var i = 0; i < players.length; i++) {
@@ -59,7 +59,7 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillStyle = colorBlack;
     ctx.fillText(players[i], basicMargin + (columnMargin * i), CLOUD_HEIGHT - BASIC_Y);
     ctx.fillText(Math.round(times[i]), basicMargin + (columnMargin * i), BAR_Y_POSITION + (BAR_HEIGHT * times[i] / maxTime) - BASIC_Y);
-    if (players[i].length === 2) {
+    if (players[i] === 'Вы') {
       ctx.fillStyle = colorRed;
     } else {
       ctx.fillStyle = getColor(randomBlue);
