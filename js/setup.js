@@ -100,13 +100,11 @@ var checkInputHandler = function (evt) {
 
   if (target.validity.valueMissing) {
     target.setCustomValidity('Обязательное поле');
-  }
-  else if (target.value.length < 2) {
+  } else if (target.value.length < 2) {
     target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
   } else if (target.value.length > 25) {
     target.setCustomValidity('Имя не должно превышать 25-ти символов');
-  }
-    else {
+  } else {
     target.setCustomValidity('');
   }
   return target;
