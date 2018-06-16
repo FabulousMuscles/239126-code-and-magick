@@ -129,11 +129,11 @@ var renderFireballColor = function () {
   return renderedFireballColor;
 };
 
-var noEscInputFocusHandler = function () {
+var inputFocusHandler = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-var escInputBlurHandler = function () {
+var inputBlurHandler = function () {
   document.addEventListener('keydown', onPopupEscPress);
 };
 
@@ -174,9 +174,9 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
-userNameInput.addEventListener('focus', noEscInputFocusHandler);
+userNameInput.addEventListener('focus', inputFocusHandler);
 
-userNameInput.addEventListener('blur', escInputBlurHandler);
+userNameInput.addEventListener('blur', inputBlurHandler);
 
 userNameInput.addEventListener('input', checkInputHandler);
 
